@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { connect } from 'react-redux';
+import { updateName } from '../actions/userAction';
 
 class Home extends React.Component {
     render() {
@@ -12,6 +13,10 @@ class Home extends React.Component {
                     onPress={()=>this.props.navigation.navigate('Detail')}
                 />
                 <Text>{this.props.state.appData.user.name}</Text>
+                <Button
+                    title='updateName@Home'
+                    onPress={() => this.props.updateName('foo@Home')}
+                />
             </View>
         );
     }
@@ -23,6 +28,12 @@ const mapStateToProps = state => (
     }
 );
 
-export default connect(mapStateToProps, null)(Home);
+const mapDispatchToProps = dispatch => {
+    return {
+        updateName: (name) => dispatch(updateName(name)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
 // export default Home;
