@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { connect } from 'react-redux';
-import { updateName, getHelloThunk } from '../actions/userAction';
+import { updateName, getHelloThunk, getHelloSaga } from '../actions/userAction';
 
 class Home extends React.Component {
     render() {
@@ -19,7 +19,11 @@ class Home extends React.Component {
                 />
                 <Button
                     title='updateName@Thunk'
-                    onPress={() => this.props.getHelloThunk('foo@Thunk')}
+                    onPress={() => this.props.getHelloThunk()}
+                />
+                <Button
+                    title='updateName@Saga'
+                    onPress={() => this.props.getHelloSaga()}
                 />
             </View>
         );
@@ -36,6 +40,7 @@ const mapDispatchToProps = dispatch => {
     return {
         updateName: (name) => dispatch(updateName(name)),
         getHelloThunk: () => dispatch(getHelloThunk()),
+        getHelloSaga: () => dispatch(getHelloSaga()),
     }
 }
 

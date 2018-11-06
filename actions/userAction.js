@@ -15,3 +15,9 @@ export const getHelloThunk = () => async dispatch => {
         name: json.message
     });
 }
+
+export const getHelloSaga = () => {
+    return {
+        type: 'GET_HELLO_SAGA',
+    }
+}
