@@ -13,6 +13,12 @@ const userReducer = (state = initialState, action) => {
                     name: action.name
                 }
             });
+        case 'GET_HELLO_THUNK':
+            return Object.assign({}, state, {
+                user: {
+                    name: action.name
+                }
+            });
         default:
             return state;
     }
